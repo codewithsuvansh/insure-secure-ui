@@ -67,7 +67,7 @@ export default function InvestmentsPage() {
 
       <section className="py-14 lg:py-20">
         <div className="wrap">
-          <SectionHeading eyebrow="The right order" title="Protect first. Then grow." lede="Few places look at your insurance and investments together. Getting them in the right order keeps a setback from undoing years of saving." />
+          <SectionHeading eyebrow="The right order" title="Protect first. Then grow." lede="Looking at your insurance and investments together helps you get them in the right order, so that a setback does not undo years of saving." />
           <ol className="mt-10 grid gap-8 md:grid-cols-3">
             {order.map((o, i) => (
               <li key={o.title} className="border-t-2 border-navy-900 pt-5">

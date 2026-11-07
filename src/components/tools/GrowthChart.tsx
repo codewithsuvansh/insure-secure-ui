@@ -78,6 +78,13 @@ export function GrowthChart({ yearly }: { yearly: SipYear[] }) {
               </div>
             ))}
           </div>
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute right-0 text-xs font-semibold whitespace-nowrap text-navy-900"
+            style={{ bottom: `calc(${(last.value / top) * 100}% + 4px)` }}
+          >
+            {formatLakhCrore(last.value)}
+          </span>
           {shown && (
             <div
               className="pointer-events-none absolute top-1 z-10 w-48 rounded-xl border border-navy-900/15 bg-white p-3 text-sm shadow-lift"

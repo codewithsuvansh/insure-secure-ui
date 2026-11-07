@@ -38,8 +38,9 @@ export function HeroSelector() {
           <div className="wrap relative grid items-center gap-10 pt-9 pb-12 lg:grid-cols-[1.12fr_1fr] lg:gap-12 lg:pt-11 lg:pb-14">
             <div>
               <p className="eyebrow">Insurance and investments in Jalandhar</p>
-              <h1 className="mt-4 text-[clamp(2.5rem,1.9rem+2.9vw,4.25rem)] leading-[1.04]">
-                Protect what you have. Grow what’s next.
+              <h1 className="mt-4 text-[clamp(1.7rem,0.95rem+3.6vw,3.45rem)] leading-[1.08] lg:text-[clamp(3rem,4.6vw,3.45rem)] [text-wrap:initial]">
+                <span className="block">Protect what you have.</span>
+                <span className="block text-leaf-700">Grow what’s next.</span>
               </h1>
               <p className="lede mt-4 max-w-xl">
                 Insurance for your family, home and business, plus mutual funds and SIPs for your goals, explained in plain
