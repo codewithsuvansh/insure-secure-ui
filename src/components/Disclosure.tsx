@@ -1,29 +1,23 @@
 import { investmentRole, site } from '@/content/site';
 
-export function Pending({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
-  return (
-    <span
-      data-pending
-      className={`inline-block rounded border border-dashed px-1.5 text-[0.85em] font-semibold ${
-        light ? 'border-lime/70 text-lime' : 'border-amber-note/60 bg-amber-50 text-amber-note'
-      }`}
-    >
-      Add before launch: {children}
-    </span>
-  );
+/** Shows the business name, plus licence details only once they are filled in. */
+export function LicenceRows() {
+  const { type, registrationNumber, validUntil } = site.licence;
+  const rows: [string, string | null][] = [
+    ['Business name', site.legalName],
+    ['Licence type', type],
+    ['IRDAI registration number', registrationNumber],
+    ['Valid until', validUntil],
+  ];
+  return <DetailRows rows={rows} />;
 }
 
-export function LicenceRows({ light = false }: { light?: boolean }) {
-  const { type, registrationNumber, validUntil } = site.licence;
-  const rows: [string, React.ReactNode][] = [
-    ['Registered name', site.legalName],
-    ['Licence type', type ?? <Pending light={light}>licence type</Pending>],
-    ['IRDAI registration number', registrationNumber ?? <Pending light={light}>registration number</Pending>],
-    ['Valid until', validUntil ?? <Pending light={light}>validity date</Pending>],
-  ];
+function DetailRows({ rows }: { rows: [string, string | null][] }) {
+  const filled = rows.filter((row) => row[1]);
+  if (filled.length === 0) return null;
   return (
     <dl className="grid gap-x-8 gap-y-2 sm:grid-cols-2">
-      {rows.map(([label, value]) => (
+      {filled.map(([label, value]) => (
         <div key={label}>
           <dt className="inline font-semibold">{label}: </dt>
           <dd className="inline">{value}</dd>
@@ -42,23 +36,19 @@ export const irdaiNotice =
 export const mutualFundNotice =
   'Mutual fund investments are subject to market risks. Read all scheme-related documents carefully before investing. Past performance does not indicate future returns.';
 
-export function InvestmentRows({ light = false }: { light?: boolean }) {
+/** Stays hidden until an investment registration is filled in. */
+export function InvestmentRows() {
   const { amfiArn, arnValidUntil, sebiRiaNumber } = site.investments;
-  const rows: [string, React.ReactNode][] = [
-    ['Investment services', investmentRole()],
-    ['AMFI registration (ARN)', amfiArn ?? <Pending light={light}>ARN</Pending>],
-    ['ARN valid until', arnValidUntil ?? <Pending light={light}>ARN validity date</Pending>],
-    ...(sebiRiaNumber ? ([['SEBI registration number', sebiRiaNumber]] as [string, React.ReactNode][]) : []),
-  ];
+  if (!amfiArn && !sebiRiaNumber) return null;
   return (
-    <dl className="grid gap-x-8 gap-y-2 sm:grid-cols-2">
-      {rows.map(([label, value]) => (
-        <div key={label}>
-          <dt className="inline font-semibold">{label}: </dt>
-          <dd className="inline">{value}</dd>
-        </div>
-      ))}
-    </dl>
+    <DetailRows
+      rows={[
+        ['Investment services', investmentRole()],
+        ['AMFI registration (ARN)', amfiArn],
+        ['ARN valid until', arnValidUntil],
+        ['SEBI registration number', sebiRiaNumber],
+      ]}
+    />
   );
 }
 

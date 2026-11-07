@@ -1,7 +1,6 @@
 /**
  * Single source of truth for business details.
- * Anything left null is either hidden on the site or, for regulatory details,
- * shown as a clearly marked "add before launch" placeholder.
+ * Anything left null is hidden on the site.
  */
 export interface Testimonial {
   name: string;
@@ -59,7 +58,7 @@ export const site = {
     instagram: null as string | null,
     linkedin: null as string | null,
   },
-  /** Regulatory details. All three must be completed before launch. */
+  /** Regulatory details. These stay hidden on the site until filled in. */
   licence: {
     type: null as string | null,
     registrationNumber: null as string | null,

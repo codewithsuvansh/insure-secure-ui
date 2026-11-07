@@ -115,8 +115,8 @@ export function Footer() {
       </div>
       <div className="border-t border-white/15">
         <div className="wrap space-y-3 py-8 text-sm leading-relaxed text-navy-200">
-          <LicenceRows light />
-          <InvestmentRows light />
+          <LicenceRows />
+          <InvestmentRows />
           <p className="font-semibold text-white">{mutualFundNotice}</p>
           <p>{solicitationNotice}</p>
           <p>{irdaiNotice}</p>

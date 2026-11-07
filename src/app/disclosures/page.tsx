@@ -4,28 +4,28 @@ import { PageHeader } from '@/components/ui';
 import { fullAddress, site } from '@/content/site';
 
 export const metadata: Metadata = {
-  title: 'Regulatory Disclosures',
-  description: 'Insurance and investment registration details and regulatory notices for Insure Secure Financial Services.',
+  title: 'Disclosures',
+  description: 'Business details and important notices for Insure Secure Financial Services.',
   alternates: { canonical: '/disclosures/' },
 };
 
 export default function Page() {
   return (
     <>
-      <PageHeader crumbs={[{ name: 'Disclosures' }]} title="Regulatory disclosures" />
+      <PageHeader crumbs={[{ name: 'Disclosures' }]} title="Disclosures" />
       <section className="wrap pb-20">
         <div className="max-w-3xl space-y-8">
         <div className="card p-7">
-          <h2 className="mb-4 text-2xl">Registration details</h2>
+          <h2 className="mb-4 text-2xl">Business details</h2>
           <LicenceRows />
           <p className="mt-3"><span className="font-semibold">Address: </span>{fullAddress()}</p>
           <p className="mt-2"><span className="font-semibold">Phone: </span>{site.phone.display}</p>
           {site.email && <p className="mt-2"><span className="font-semibold">Email: </span><a className="link break-all" href={`mailto:${site.email}`}>{site.email}</a></p>}
         </div>
         <div className="card p-7">
-          <h2 className="mb-4 text-2xl">Investment registration</h2>
+          <h2 className="mb-4 text-2xl">Investments</h2>
           <InvestmentRows />
-          <p className="mt-4 font-semibold">{mutualFundNotice}</p>
+          <p className="mt-4 font-semibold first:mt-0">{mutualFundNotice}</p>
           <p className="mt-3">A mutual fund distributor is typically paid a commission by the fund house on regular plans, and this forms part of the scheme’s expenses. Direct plans do not include distributor commission. Please ask us for commission details on any scheme we discuss. Calculators on this website use rates you choose. They are illustrations only and do not promise any return.</p>
         </div>
         <div className="space-y-3">

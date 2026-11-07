@@ -23,8 +23,8 @@ Browser tests need Chromium once: `npx playwright install chromium`.
 
 Edit `src/content/site.ts`. It holds the phone number, email, address, insurance and investment registrations, advisor profile, testimonials and insurers.
 
-- **Regulatory details:** while `licence` values are null, the site shows an "Add before launch" marker in the footer and on the disclosures page.
-- **Investment registrations:** while `investments.amfiArn` is null, the same marker appears for the ARN. Setting `investments.sebiRiaNumber` changes the site's description of the role from mutual fund distributor to SEBI Registered Investment Adviser.
+- **Regulatory details:** licence and registration values stay hidden on the site while they are null, and appear in the footer and on the disclosures page once filled in.
+- **Investment registrations:** setting `investments.amfiArn` or `investments.sebiRiaNumber` adds them to the footer and disclosures page. Setting `sebiRiaNumber` describes the role as SEBI Registered Investment Adviser.
 - **Testimonials and insurers:** these sections stay hidden until entries are added. Add genuine, permitted content only.
 - **Email, hours and social links:** these appear only once they are filled in.
 - **Free consultation:** the site does not claim this by default. Set `freeConsultation` to true once the client confirms it, and the contact section will say so.
@@ -58,9 +58,8 @@ Or set `url` in `src/content/site.ts`. The domain is used for the sitemap, canon
 
 ## Before launch
 
-1. Fill in licence type, IRDAI registration number, validity, and the AMFI ARN or SEBI registration in `src/content/site.ts`.
-2. Confirm the exact registered business name.
-3. Set the live domain.
-4. Have the client confirm the claim support and policy review wording matches the service offered.
-5. Have the content, disclaimers and legal pages reviewed by the client's insurer or a compliance adviser.
-6. Check that the map pin matches the office, and set up WhatsApp Business on the client's number.
+1. Confirm the exact registered business name.
+2. Set the live domain.
+3. Have the client confirm the claim support and policy review wording matches the service offered.
+4. Have the content, disclaimers and legal pages reviewed by the client's insurer or a compliance adviser.
+5. Set up WhatsApp Business on the client's number.

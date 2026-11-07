@@ -316,6 +316,17 @@ test('the office address and map links use the correct address', async ({ page }
   await expect(page.locator('body')).not.toContainText('763');
 });
 
+test('licence and registration details and markers are not shown', async ({ page }) => {
+  for (const path of ['/', '/disclosures/', '/investments/']) {
+    await page.goto(path);
+    const text = await page.locator('body').innerText();
+    for (const hidden of ['Add before launch', 'Licence type', 'IRDAI registration number', 'AMFI registration', 'ARN valid until', 'SEBI registration number']) {
+      expect(text, `${path}: ${hidden}`).not.toContain(hidden);
+    }
+    await expect(page.locator('footer')).toContainText('Mutual fund investments are subject to market risks');
+  }
+});
+
 test.describe('honest content', () => {
   test('testimonials and insurers stay hidden while their data is empty', async ({ page }) => {
     await page.goto('/');
