@@ -1,7 +1,7 @@
 export const generalFaqs = [
   {
     q: 'Who will I actually be speaking to?',
-    a: 'You speak with Sakul Mahajan in Jalandhar, on WhatsApp, by phone or at the Karol Bagh Extension office.',
+    a: 'You speak with Sakul Mahajan in Jalandhar, on WhatsApp, by phone or at the Karol Bagh office.',
   },
   {
     q: 'Do you only help people in Jalandhar?',

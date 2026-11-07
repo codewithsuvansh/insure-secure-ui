@@ -302,6 +302,19 @@ test.describe('investments', () => {
   });
 });
 
+test('the office address and map links use the correct address', async ({ page }) => {
+  const address = 'House No 511, Karol Bagh Road, near DIPS School, Karol Bagh, Kot Ram Dass, Rail Vihar, Jalandhar, Punjab 144001';
+  const mapSearch = 'Insure Secure Financial Services, 511, Karol Bagh Rd, Jalandhar, Punjab 144001';
+  await page.goto('/contact/');
+  await expect(page.locator('main')).toContainText(address);
+  await expect(page.locator('footer')).toContainText(address);
+  const embed = await page.locator('iframe').getAttribute('src');
+  expect(new URL(embed!).searchParams.get('q')).toBe(mapSearch);
+  const directions = await page.getByRole('link', { name: 'Get directions' }).getAttribute('href');
+  expect(new URL(directions!).searchParams.get('query')).toBe(mapSearch);
+  await expect(page.locator('body')).not.toContainText('763');
+});
+
 test.describe('honest content', () => {
   test('testimonials and insurers stay hidden while their data is empty', async ({ page }) => {
     await page.goto('/');

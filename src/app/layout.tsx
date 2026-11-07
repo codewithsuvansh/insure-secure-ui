@@ -4,7 +4,7 @@ import { ContactDock } from '@/components/ContactDock';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { JsonLd } from '@/components/ui';
-import { fullAddress, site } from '@/content/site';
+import { mapsQuery, site } from '@/content/site';
 import './globals.css';
 
 const fraunces = Fraunces({ subsets: ['latin'], variable: '--font-fraunces', axes: ['opsz'], display: 'swap' });
@@ -51,7 +51,7 @@ const agency = {
   areaServed: { '@type': 'City', name: 'Jalandhar' },
   ...(site.email ? { email: site.email } : {}),
   ...(Object.values(site.social).some(Boolean) ? { sameAs: Object.values(site.social).filter(Boolean) } : {}),
-  hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress())}`,
+  hasMap: `https://www.google.com/maps/search/?api=1&query=${mapsQuery()}`,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

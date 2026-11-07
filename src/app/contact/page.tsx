@@ -4,7 +4,7 @@ import { Breadcrumbs } from '@/components/ui';
 
 export const metadata: Metadata = {
   title: 'Contact and Get a Quote',
-  description: 'Contact Insure Secure in Jalandhar by WhatsApp or phone on +91 79861 08922, or visit the Karol Bagh Extension office.',
+  description: 'Contact Insure Secure in Jalandhar by WhatsApp or phone on +91 79861 08922, or visit the Karol Bagh office near DIPS School.',
   alternates: { canonical: '/contact/' },
 };
 

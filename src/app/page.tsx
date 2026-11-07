@@ -32,7 +32,7 @@ const claimStages = [
 export default function HomePage() {
   const trust = [
     { icon: BadgeCheck, title: site.advisor.name, text: 'A real person, not a call centre' },
-    { icon: MapPin, title: 'Karol Bagh Extension', text: 'A local office in Jalandhar' },
+    { icon: MapPin, title: 'Karol Bagh, Jalandhar', text: 'A local office near DIPS School' },
     { icon: Phone, title: 'WhatsApp or call', text: site.phone.display },
     ...(site.licence.registrationNumber
       ? [{ icon: ShieldCheck, title: 'IRDAI registered', text: site.licence.registrationNumber }]

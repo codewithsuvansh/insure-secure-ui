@@ -38,12 +38,14 @@ export const site = {
     whatsapp: '917986108922',
   },
   address: {
-    line1: 'House No. 763, Karol Bagh Road',
-    line2: 'Karol Bagh Extension',
+    line1: 'House No 511, Karol Bagh Road, near DIPS School',
+    line2: 'Karol Bagh, Kot Ram Dass, Rail Vihar',
     city: 'Jalandhar',
     state: 'Punjab',
-    postcode: null as string | null,
+    postcode: '144001' as string | null,
     country: 'India',
+    /** Finds the business's own Google listing. A plain address search pins DIPS School instead. */
+    mapSearch: 'Insure Secure Financial Services, 511, Karol Bagh Rd, Jalandhar, Punjab 144001',
   },
   email: 'insuresecure1961@gmail.com' as string | null,
   hours: null as string | null,
@@ -81,12 +83,12 @@ export function investmentRole(): string {
 }
 
 export function fullAddress(): string {
-  const { line1, line2, city, state, postcode, country } = site.address;
-  return [line1, line2, postcode ? `${city} ${postcode}` : city, state, country].join(', ');
+  const { line1, line2, city, state, postcode } = site.address;
+  return [line1, line2, city, postcode ? `${state} ${postcode}` : state].join(', ');
 }
 
 export function mapsQuery(): string {
-  return encodeURIComponent(fullAddress());
+  return encodeURIComponent(site.address.mapSearch);
 }
 
 export const telUrl = `tel:${site.phone.e164}`;
