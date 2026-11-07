@@ -2,7 +2,7 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { categories } from '@/content/catalog';
 import { investmentHref, investments } from '@/content/investments';
-import { fullAddress, mapsQuery, site, telUrl } from '@/content/site';
+import { fullAddress, site, telUrl } from '@/content/site';
 import { whatsappUrl, messages } from '@/lib/whatsapp';
 import { InvestmentRows, irdaiNotice, LicenceRows, mutualFundNotice, solicitationNotice } from './Disclosure';
 import { WhatsAppIcon } from './icons';
@@ -82,7 +82,7 @@ export function Footer() {
               </li>
             )}
             <li>
-              <a href={`https://www.google.com/maps/search/?api=1&query=${mapsQuery()}`} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 hover:text-white">
+              <a href={site.address.mapListingUrl} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 hover:text-white">
                 <MapPin aria-hidden="true" className="mt-1 size-4 shrink-0 text-lime" />
                 {fullAddress()}
               </a>

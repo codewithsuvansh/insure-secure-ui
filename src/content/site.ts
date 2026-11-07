@@ -44,8 +44,13 @@ export const site = {
     state: 'Punjab',
     postcode: '144001' as string | null,
     country: 'India',
-    /** Finds the business's own Google listing. A plain address search pins DIPS School instead. */
-    mapSearch: 'Insure Secure Financial Services, 511, Karol Bagh Rd, Jalandhar, Punjab 144001',
+    /** Embed code supplied by the client for the office's Google listing. */
+    mapEmbedUrl:
+      'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.9124895763325!2d75.61989!3d31.3337898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a59b088cc1c15%3A0x1be41958c7b0c05d!2sHDFC%20ERGO%20Insurance%20Agent%3A%20Sakul%20Mahajan!5e0!3m2!1sen!2sin!4v1794052376310!5m2!1sen!2sin',
+    /** The same listing, opened directly in Google Maps. */
+    mapListingUrl: 'https://www.google.com/maps?cid=2009759202812149853',
+    latitude: 31.3337898,
+    longitude: 75.61989,
   },
   email: 'insuresecure1961@gmail.com' as string | null,
   hours: null as string | null,
@@ -87,8 +92,8 @@ export function fullAddress(): string {
   return [line1, line2, city, postcode ? `${state} ${postcode}` : state].join(', ');
 }
 
-export function mapsQuery(): string {
-  return encodeURIComponent(site.address.mapSearch);
+export function directionsUrl(): string {
+  return `https://www.google.com/maps/dir/?api=1&destination=${site.address.latitude},${site.address.longitude}`;
 }
 
 export const telUrl = `tel:${site.phone.e164}`;

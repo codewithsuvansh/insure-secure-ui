@@ -1,5 +1,5 @@
 import { ExternalLink, Mail, MapPin, Phone } from 'lucide-react';
-import { fullAddress, mapsQuery, site, telUrl } from '@/content/site';
+import { directionsUrl, fullAddress, site, telUrl } from '@/content/site';
 import { messages, whatsappUrl } from '@/lib/whatsapp';
 import { WhatsAppIcon } from './icons';
 import { QuoteForm } from './QuoteForm';
@@ -36,7 +36,7 @@ export function ContactDetails() {
         <span>
           <span className="block font-semibold text-navy-900">Visit</span>
           <span className="block text-muted">{fullAddress()}</span>
-          <a href={`https://www.google.com/maps/search/?api=1&query=${mapsQuery()}`} target="_blank" rel="noopener noreferrer" className="link mt-1 inline-flex items-center gap-1 text-[0.95rem]">
+          <a href={directionsUrl()} target="_blank" rel="noopener noreferrer" className="link mt-1 inline-flex items-center gap-1 text-[0.95rem]">
             Get directions
             <ExternalLink aria-hidden="true" className="size-3.5" />
           </a>
@@ -64,9 +64,10 @@ export function OfficeMap({ className = '' }: { className?: string }) {
   return (
     <iframe
       title={`Map showing ${site.name} at ${fullAddress()}`}
-      src={`https://www.google.com/maps?q=${mapsQuery()}&output=embed`}
+      src={site.address.mapEmbedUrl}
       loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
       className={`w-full rounded-2xl border-0 bg-navy-100 ${className}`}
     />
   );
