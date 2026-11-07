@@ -1,0 +1,290 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-navy-950: #071f33;
+  --color-navy-900: #0d3656;
+  --color-navy-800: #134670;
+  --color-navy-700: #1a5a8e;
+  --color-navy-200: #c6d7e6;
+  --color-navy-100: #dfe9f2;
+  --color-navy-50: #eff4f8;
+  --color-leaf-800: #2f5a11;
+  --color-leaf-700: #3a6b15;
+  --color-leaf-600: #48801b;
+  --color-leaf-500: #5f9e27;
+  --color-leaf-100: #e6f1d6;
+  --color-leaf-50: #f2f8e9;
+  --color-lime: #a9d95f;
+  --color-bone: #f7f5ee;
+  --color-bone-200: #ece8dc;
+  --color-ink: #12263a;
+  --color-muted: #4a5d70;
+  --color-whatsapp: #0f7a43;
+  --color-whatsapp-dark: #0b5f34;
+  --color-amber-note: #8a5a00;
+
+  --font-display: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  --font-body: var(--font-figtree), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(13 54 86 / 0.05), 0 8px 24px -12px rgb(13 54 86 / 0.16);
+  --shadow-lift: 0 2px 4px rgb(13 54 86 / 0.06), 0 24px 48px -20px rgb(13 54 86 / 0.32);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-bone);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-weight: 560;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    color: var(--color-navy-900);
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-leaf-500);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  button {
+    cursor: pointer;
+  }
+  summary {
+    cursor: pointer;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .wrap {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-leaf-700);
+  }
+  .eyebrow-light {
+    color: var(--color-lime);
+  }
+  .section-title {
+    font-size: clamp(2rem, 1.5rem + 2.2vw, 3.25rem);
+  }
+  .lede {
+    font-size: 1.1875rem;
+    line-height: 1.55;
+    color: var(--color-muted);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 3rem;
+    padding: 0.7rem 1.35rem;
+    border-radius: 999px;
+    font-weight: 650;
+    font-size: 1rem;
+    line-height: 1.2;
+    text-align: center;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      border-color 160ms ease,
+      transform 160ms ease,
+      box-shadow 160ms ease;
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+  .btn:active {
+    transform: translateY(0);
+  }
+  .btn-whatsapp {
+    background: var(--color-whatsapp);
+    color: #fff;
+  }
+  .btn-whatsapp:hover {
+    background: var(--color-whatsapp-dark);
+  }
+  .btn-navy {
+    background: var(--color-navy-900);
+    color: #fff;
+  }
+  .btn-navy:hover {
+    background: var(--color-navy-800);
+  }
+  .btn-outline {
+    border: 1.5px solid var(--color-navy-900);
+    color: var(--color-navy-900);
+  }
+  .btn-outline:hover {
+    background: var(--color-navy-900);
+    color: #fff;
+  }
+  .btn-light {
+    background: #fff;
+    color: var(--color-navy-900);
+  }
+  .btn-light:hover {
+    background: var(--color-leaf-100);
+  }
+  .btn-outline-light {
+    border: 1.5px solid rgb(255 255 255 / 0.55);
+    color: #fff;
+  }
+  .btn-outline-light:hover {
+    background: #fff;
+    color: var(--color-navy-900);
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid rgb(13 54 86 / 0.09);
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  .link {
+    color: var(--color-navy-700);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+  }
+  .link:hover {
+    color: var(--color-leaf-700);
+  }
+
+  .field-label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.9375rem;
+    font-weight: 650;
+    color: var(--color-navy-900);
+  }
+  .field {
+    display: block;
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.65rem 0.9rem;
+    border: 1.5px solid rgb(13 54 86 / 0.28);
+    border-radius: 0.75rem;
+    background: #fff;
+    color: var(--color-ink);
+    font-size: 1rem;
+    transition: border-color 140ms ease;
+  }
+  .field:hover {
+    border-color: var(--color-navy-700);
+  }
+  .field[aria-invalid='true'] {
+    border-color: #b42318;
+  }
+  .field-error {
+    margin-top: 0.3rem;
+    font-size: 0.875rem;
+    font-weight: 550;
+    color: #b42318;
+  }
+
+  input[type='range'].slider {
+    width: 100%;
+    height: 1.75rem;
+    accent-color: var(--color-leaf-600);
+    cursor: pointer;
+  }
+
+  .shield-clip {
+    clip-path: url(#shield-clip);
+  }
+
+  .faq-item summary {
+    list-style: none;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item[open] .faq-chevron {
+    transform: rotate(45deg);
+  }
+
+  /* Progressive scroll reveal: browsers without view timelines simply show the content. */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .reveal {
+        animation: rise linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 28%;
+      }
+    }
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media print {
+  header,
+  footer,
+  [data-no-print] {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+}

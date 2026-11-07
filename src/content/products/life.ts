@@ -1,0 +1,95 @@
+import type { ProductDetail } from './types';
+
+export const life: Record<string, ProductDetail> = {
+  'term-life-insurance': {
+    intro: 'Term insurance pays your family a fixed sum if you die during the policy term. It usually gives more life cover for the premium than other life plans, because it is pure protection and not an investment.',
+    whoNeeds: ['Anyone whose family relies on their income', 'People with home, car or business loans', 'Parents with children still in education'],
+    covers: ['A lump sum to your nominees on death during the term', 'Monthly income payout options, on some plans', 'Terminal illness benefit, on many plans', 'Optional riders for accidental death or critical illness'],
+    excludes: ['Suicide within the period stated in the policy', 'Claims affected by undisclosed health or smoking history', 'Death during hazardous activities that the policy excludes', 'Survival to the end of the term, unless you choose return of premium'],
+    tips: ['Share your health, income and smoking habits truthfully', 'Choose a term that lasts until your dependants are independent', 'Update your nominee after major life events'],
+    claimDocs: ['Death certificate', 'Policy document', 'Nominee’s ID and bank details', 'Medical records or hospital summary, where relevant', 'FIR and post-mortem report for an accidental death'],
+    faqs: [
+      { q: 'How much cover do I need?', a: 'A common starting point is 10 to 15 times your yearly income. Our calculator gives a closer estimate using your expenses, loans and goals.' },
+      { q: 'Do I get money back if I survive the term?', a: 'A standard term plan pays nothing at the end, which keeps the premium low. Return-of-premium versions exist at a higher cost.' },
+    ],
+    related: ['critical-illness-insurance', 'personal-accident-insurance', 'child-insurance-plan'],
+  },
+  'whole-life-insurance': {
+    intro: 'Whole life plans can cover you into old age, often up to 99 or 100 years. They suit people who want to leave money for their family, whenever death occurs.',
+    whoNeeds: ['People planning to leave an inheritance', 'Those with lifelong dependants', 'Business owners planning for succession'],
+    covers: ['A death benefit for your nominees', 'A maturity benefit at the end of the policy, if you reach that age', 'Bonuses or assured additions, depending on the plan', 'Loans against the policy, on plans that allow them'],
+    excludes: ['Suicide within the period stated in the policy', 'Claims affected by undisclosed information', 'Reduced value if premiums stop early', 'Exclusions listed in the policy wording'],
+    tips: ['Compare it against a term plan with separate investments', 'Ask which benefits are assured and which are only illustrations', 'Check the surrender value in the early years'],
+    claimDocs: ['Death certificate or maturity discharge form', 'Policy document', 'Nominee’s ID and bank details', 'Medical records, where relevant'],
+    faqs: [
+      { q: 'Is this better than term insurance?', a: 'They do different jobs. Term gives more cover for the premium, while whole life provides a benefit that does not depend on dying within a set term.' },
+      { q: 'Can I stop paying early?', a: 'Many plans have a limited payment term. Stopping earlier than agreed can sharply reduce the benefits, so read the surrender terms.' },
+    ],
+    related: ['term-life-insurance', 'savings-life-insurance', 'retirement-pension-plan'],
+  },
+  'savings-life-insurance': {
+    intro: 'Savings life plans combine life cover with a benefit paid at maturity. They suit people who want a disciplined, longer-term way to save for a set goal.',
+    whoNeeds: ['People saving for a known future expense', 'Those who prefer fixed terms to market-linked plans', 'Savers who value a built-in saving habit'],
+    covers: ['A death benefit for your nominees', 'A maturity benefit at the end of the term', 'Bonuses or assured additions, depending on the plan', 'Riders for accident or illness, on plans that offer them'],
+    excludes: ['Suicide within the period stated in the policy', 'Claims affected by undisclosed information', 'Reduced value if premiums stop early', 'Bonuses that are not declared in a given year'],
+    tips: ['Ask for the actual return after charges, not only the maturity figure', 'Use term insurance for high cover and this plan for saving', 'Only commit to premiums you can pay for the full term'],
+    claimDocs: ['Maturity discharge form, or death certificate', 'Policy document', 'ID and bank details', 'Medical records, where relevant'],
+    faqs: [
+      { q: 'Are the returns fixed?', a: 'Some are and some are not. The benefit illustration will show which amounts are assured and which depend on future bonuses.' },
+      { q: 'What if I need the money early?', a: 'You may be able to surrender or take a loan, but early exits usually return less than you paid.' },
+    ],
+    related: ['term-life-insurance', 'child-insurance-plan', 'retirement-pension-plan'],
+  },
+  ulip: {
+    intro: 'A ULIP combines life cover with investment in market-linked funds. Your returns move with the market, and the investment risk is yours.',
+    whoNeeds: ['Long-term investors comfortable with market risk', 'People who want insurance and investing in one plan', 'Those willing to stay invested beyond the lock-in'],
+    covers: ['A death benefit for your nominees', 'A fund value that you receive at maturity', 'Switching between equity, debt and balanced funds', 'Partial withdrawals after the five-year lock-in'],
+    excludes: ['Market losses, which are carried by the policyholder', 'Withdrawals during the five-year lock-in', 'Suicide within the period stated in the policy', 'Charges deducted for allocation, administration, mortality and fund management'],
+    tips: ['Check all charges and what they do to your returns', 'Think in terms of 10 years or more', 'Keep enough life cover through term insurance if the ULIP’s cover is modest'],
+    claimDocs: ['Death certificate or maturity form', 'Policy document', 'Nominee’s ID and bank details', 'Medical records, where relevant'],
+    faqs: [
+      { q: 'Are ULIP returns assured?', a: 'No. They depend on the funds you choose and market performance, so past returns do not indicate future returns.' },
+      { q: 'Can I exit early?', a: 'The five-year lock-in applies. If you discontinue earlier, the money moves to a discontinued policy fund until the lock-in ends.' },
+    ],
+    related: ['term-life-insurance', 'savings-life-insurance', 'retirement-pension-plan'],
+  },
+  'child-insurance-plan': {
+    intro: 'A child plan builds money for milestones such as college, and many keep the plan running even if the parent dies. The aim is to protect the goal and not only the parent.',
+    whoNeeds: ['Parents saving for higher education', 'Parents of young children with a long time to save', 'Families planning for study abroad'],
+    covers: ['A payout at set milestones or at maturity', 'A death benefit for the family', 'Premium waiver, where future premiums are paid by the insurer after the parent’s death', 'Market-linked or traditional options'],
+    excludes: ['Premium waiver on plans that do not include it', 'Market losses on unit-linked versions', 'Claims affected by undisclosed information', 'Exclusions listed in the policy wording'],
+    tips: ['Estimate future education costs and allow for inflation', 'Make sure the premium waiver is actually included', 'Keep separate term cover for the earning parent'],
+    claimDocs: ['Death certificate of the insured parent, or maturity form', 'Policy document', 'Nominee’s ID and bank details', 'Birth proof of the child, if requested'],
+    faqs: [
+      { q: 'Who is insured in a child plan?', a: 'Usually the parent, because the risk is losing the income that funds the goal. The child is typically the beneficiary.' },
+      { q: 'When should I start?', a: 'Earlier is generally better, because a longer time to save reduces the premium needed for the same goal.' },
+    ],
+    related: ['term-life-insurance', 'savings-life-insurance', 'ulip'],
+  },
+  'retirement-pension-plan': {
+    intro: 'Retirement plans help you build a fund during your working years and convert it into income later. They give structure to a goal that is easy to postpone.',
+    whoNeeds: ['Self-employed people with no provident fund', 'Employees who want income beyond their employer’s benefits', 'People in their 30s and 40s planning ahead'],
+    covers: ['Accumulation of a retirement fund', 'Regular income after vesting', 'A partial lump sum at retirement, within permitted limits', 'A death benefit for your nominees, as per the plan'],
+    excludes: ['Market losses on market-linked plans', 'Unrestricted early withdrawals', 'Charges and any terms listed in the policy', 'Annuity rates, which are set when you convert your fund'],
+    tips: ['Work out what income you need in today’s money', 'Start early to give your savings longer to grow', 'Ask how the income is paid and whether a spouse continues to receive it'],
+    claimDocs: ['Vesting or discharge form', 'Policy document', 'Age proof, ID and bank details', 'Death certificate, in a death claim'],
+    faqs: [
+      { q: 'How much should I save?', a: 'It depends on your age, expenses and other savings. We can work through a simple estimate with you.' },
+      { q: 'Can I take all the money at retirement?', a: 'Usually only part of it. The rest buys an annuity, under the plan’s terms and current regulations.' },
+    ],
+    related: ['annuity-plan', 'savings-life-insurance', 'whole-life-insurance'],
+  },
+  'annuity-plan': {
+    intro: 'An annuity turns a lump sum into regular income, either straight away or from a chosen date. It can provide predictable income for as long as you live, depending on the option you choose.',
+    whoNeeds: ['Retirees with a lump sum to invest', 'People without a company pension', 'Couples who want income for both partners’ lifetimes'],
+    covers: ['Regular income, monthly to yearly', 'Lifetime income options', 'Joint-life options that continue for a spouse', 'Return of the purchase price to nominees, on options that include it'],
+    excludes: ['Inflation protection, unless the option includes it', 'Access to the capital on most lifetime options', 'Higher income if interest rates rise after purchase', 'Terms listed in the policy wording'],
+    tips: ['Compare the income under each option before you commit', 'Think about what your spouse would receive after you', 'Consider keeping some savings out for emergencies'],
+    claimDocs: ['Proof of being alive, when requested', 'Policy document', 'Death certificate and nominee details, in a death claim', 'ID and bank details'],
+    faqs: [
+      { q: 'Can I change my mind later?', a: 'Annuities are often hard to reverse after the free-look period, so choose the option carefully.' },
+      { q: 'Is annuity income taxed?', a: 'Tax treatment depends on current law and your situation, so please check with a tax adviser.' },
+    ],
+    related: ['retirement-pension-plan', 'whole-life-insurance', 'senior-citizen-health-insurance'],
+  },
+};
